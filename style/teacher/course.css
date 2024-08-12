@@ -1,0 +1,12 @@
+.custom-line {
+    width: 98%;
+    height: 1px;
+    background-color: #000; 
+    margin: 10px 1%;
+}
+
+h2 {
+    margin-top: 20px;
+    text-align: center;
+}
+

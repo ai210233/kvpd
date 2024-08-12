@@ -1,0 +1,54 @@
+
+simple assign 1 data
+// Query the database to get the SelectionAA value based on $folder_id
+$selectAAQuery = "SELECT * FROM aafolder WHERE AAfolderID = $folder_id";
+$selectAAResult = $conn->query($selectAAQuery);
+
+if ($selectAAResult->num_rows == 1) {
+    $selectAARow = $selectAAResult->fetch_assoc();
+    $AAselect_id = $selectAARow['SelectionAA'];
+    $selectFolderName = $selectAARow['FolderName'];
+    $selectDueDate = $selectAARow['DueDate'];
+    $selectFolderDate = $selectAARow['FolderDate'];
+} else {
+    
+}
+
+simple assign multiple data
+$selectAssignmentQuery = "SELECT FileName, FilePath, DateSubmission, AssignsubID FROM assignment_submission WHERE StudentID = $studentID AND AAfolderID = $folder_id";
+$selectAssignmentResult = $conn->query($selectAssignmentQuery);
+
+$assignmentFiles = [];
+if ($selectAssignmentResult->num_rows > 0) {
+    while ($row = $selectAssignmentResult->fetch_assoc()) {
+        $assignmentFiles[] = $row;
+    }
+}
+
+
+1. Login
+- Forget Password (report)
+
+2. Register (Remove)
+
+3. Manage Course
+- add new course (coding) (KIV)
+
+- change teacher and student ID to username and Matric number (report)
+- edit overview
+- view student list
+
+Group Assignment (teacher)
+- for individual, make can download the file that have been add
+- create group based on assignment
+- can set how much student for each group
+- can add student to each group manually
+- can add student to group randomly
+- view the group and student on it
+
+(student)
+Individual Assignment
+- view the assignment
+- can download the assignment
+- show the due date and can submit the assignment back
+
